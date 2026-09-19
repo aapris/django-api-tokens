@@ -1,0 +1,51 @@
+[project]
+name = "django-api-tokens"
+version = "0.1.0"
+description = "Hashed, named, scoped and revocable API tokens for Django REST Framework."
+readme = "README.md"
+authors = [
+    { name = "Aapo Rista", email = "aapris@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.2",
+    "djangorestframework>=3.15",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "api_tokens"
+
+[dependency-groups]
+dev = [
+    "drf-spectacular>=0.30.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "pytest-django>=4.14.0",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+line-length = 119
+target-version = "py312"
+extend-exclude = ["src/api_tokens/migrations"]
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "B", "SIM", "RUF", "N", "PTH", "ANN", "PT"]
+ignore = ["RUF012", "ANN401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["api_tokens"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+
+[tool.coverage.run]
+source = ["api_tokens"]
+branch = true
