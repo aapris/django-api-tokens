@@ -35,8 +35,11 @@ input is random and far too long to brute-force.
 ## Installation
 
 ```bash
-uv add "django-api-tokens @ git+ssh://git@github.com/<owner>/django-api-tokens.git@v0.1.0"
+uv add "django-api-tokens @ git+https://github.com/aapris/django-api-tokens.git@v0.1.0"
 ```
+
+HTTPS and a tag on purpose: no credentials are needed, so container builds and CI work
+without keys, and the version is pinned.
 
 ```python
 # settings.py
@@ -172,3 +175,7 @@ just makemigrations -n <name>     # after a model change
 ```
 
 Tests run against SQLite with the minimal settings in `tests/settings.py`.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

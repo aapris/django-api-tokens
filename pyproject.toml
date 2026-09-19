@@ -3,6 +3,13 @@ name = "django-api-tokens"
 version = "0.1.0"
 description = "Hashed, named, scoped and revocable API tokens for Django REST Framework."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["django", "djangorestframework", "api", "authentication", "token"]
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3 :: Only",
+]
 authors = [
     { name = "Aapo Rista", email = "aapris@gmail.com" }
 ]
